@@ -65,7 +65,7 @@ def getKey():
 def endGame():
     message = game_over_font.render("Game Over",1,pygame.Color("white"))
     message_play_again = play_again_font.render("Play again ? (Y/N)",1,pygame.color("green"))
-    # This line says "Draw surf onto the screen at the center"
+    # This line says "Draw messege onto the screen at the center"
     screen.blit,(message,(328,240))
     screen.blit(message_play_again,(320+12,240+40))
 
@@ -91,7 +91,10 @@ def drawScore(score):
     screen.blit(score_numb,(SCREEN_WIDTH - 45,14))
 
 def drawGameTime(gameTime):
-    gameTime = score_front.render(T)
+    gameTime = score_front.render("Time:" , 1, pygame.Color("white"))
+    game_time_numb = score_numb_font.render(str(gameTime/1000),1,pygame.Color("white"))
+    screen.blit(gameTime,(30,10))
+    screen.blit(game_time_numb,(105,14))
 
 def exitScreen():
     pass
