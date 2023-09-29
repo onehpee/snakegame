@@ -59,10 +59,42 @@ def getKey():
         #if you don't want too
         elif event.key == pygame.K_n:
             return "no"
-    if event.type == pygame.QUIT:
-        sys.exit(0)
+        if event.type == pygame.QUIT:
+            sys.exit(0)
 
 def endGame():
     message = game_over_font.render("Game Over",1,pygame.Color("white"))
     message_play_again = play_again_font.render("Play again ? (Y/N)",1,pygame.color("green"))
-    screen.blit,()
+    # This line says "Draw surf onto the screen at the center"
+    screen.blit,(message,(328,240))
+    screen.blit(message_play_again,(320+12,240+40))
+
+    #Update the full display Surface to the screen
+    #Update portions of the screen for software displays
+    pygame.display.flip()
+    pygame.display.update()
+
+    mKey = getKey()
+    while(mKey != "exit"):
+        if(mKey == "yes"):
+            main()
+        elif(mKey == "no"):
+            break
+        #It will compute how many . milliseconds have passed since the previous call.
+        #means that for every second at most #?frames should pass.
+        gameClock.tick
+    sys.exit(0)
+
+def drawScore(score):
+    score_numb = score_numb_font.render(str(score),1,pygame.Color("red"))
+    screen.blit(score_msg,(SCREEN_WIDTH - score_msg_size[0]-60,10))
+    screen.blit(score_numb,(SCREEN_WIDTH - 45,14))
+
+def drawGameTime(gameTime):
+    gameTime = score_front.render(T)
+
+def exitScreen():
+    pass
+
+def main():
+    score = 0
