@@ -38,6 +38,32 @@ black = pygame.Color(0,0,0)
 #clock at left corner
 gameClock = pygame.time.Clock()
 
+def checkCollision(posA,As ,posB,Bs): #As is the size of a and Bs is the size of b
+    if(posA.x < posB.x + Bs and posA.x + As > posB.x and posA.y < posB.y + Bs and posA.y > posB.y):
+        return True
+    return False
+# This checks the boudaries limiting boundaries of the screen
+def checkLimits(snake):
+    if(snake.x > SCREEN_WIDTH):
+        snake.x = SNAKE_SIZE
+    if(snake.x < 0): #checks if the snake is breaks the limit of the screen
+        snake.x = SCREEN_WIDTH - SNAKE_SIZE
+    if(snake.y > SCREEN_HEIGHT):
+        snake.y = SNAKE_SIZE
+    if(snake.y < 0):
+        snake.y - SCREEN_HEIGHT - SNAKE_SIZE
+
+#food for the snake
+class snakeFood:
+    def __init__(self,x,y,state):
+        self.x = x
+        self.y = y
+        self.state = state
+        self.color = pygame.color.Color("Orange") #Color of the Food
+
+    def draw(self,screen):
+             pygame.draw.rect(screen,self.color(self.x,self.y,APPLE_SIZE,APPLE_SIZE),0)
+
 #define keys
 
 def getKey():
