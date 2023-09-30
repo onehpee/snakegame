@@ -89,7 +89,7 @@ def getKey():
             sys.exit(0)
 
 def endGame():
-    message = game_over_font.render("Games Over",1,pygame.Color("white"))
+    message = game_over_font.render("Gamess Over",1,pygame.Color("white"))
     message_play_again = play_again_font.render("Play again ? (Y/N)",1,pygame.color("green"))
     # This line says "Draw messege onto the screen at the center"
     screen.blit,(message,(328,240))
